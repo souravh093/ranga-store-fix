@@ -14,7 +14,8 @@ loadProducts('https://fakestoreapi.com/products');
 // show all product in UI
 const showProducts = (products) => {
    
-   setInnerText('total_products', products);
+   const totalProducts = document.getElementById('total_products');
+   totalProducts.innerText = products.length
 
    document.getElementById("all-products").innerHTML = "";
 
@@ -48,6 +49,7 @@ const addToCart = (id, price) => {
 
    updateTaxAndCharge();
    document.getElementById('total-Products').innerText = count;
+   updateTotal()
 };
 
 const showProductDetails = (product_id) => {
@@ -81,7 +83,7 @@ const updatePrice = (id, value) => {
 
 // set innerText function
 const setInnerText = (id, value) => {
-   document.getElementById(id).innerText = Math.round(value);
+   document.getElementById(id).innerText = value;
 };
 
 // update delivery charge and total Tax
